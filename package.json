@@ -1,0 +1,29 @@
+{
+  "name": "leetcode-ai-assistant",
+  "version": "1.0.0",
+  "description": "Chrome extension that provides AI-powered step-by-step guidance for solving LeetCode problems",
+  "main": "background.js",
+  "scripts": {
+    "build": "echo 'No build process needed for this extension'",
+    "test": "echo 'No tests configured yet'",
+    "dev": "echo 'Load the extension in Chrome developer mode'",
+    "package": "zip -r leetcode-ai-assistant.zip . -x '*.git*' 'node_modules/*' 'package*.json' '.DS_Store'"
+  },
+  "keywords": [
+    "leetcode",
+    "ai",
+    "assistant",
+    "chrome-extension",
+    "coding",
+    "algorithms",
+    "learning"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/leetcode-ai-assistant"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

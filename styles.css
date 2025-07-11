@@ -1,0 +1,383 @@
+/* LeetCode AI Assistant Styles */
+.ai-assistant-panel {
+  position: fixed !important;
+  top: 100px !important;
+  right: 20px !important;
+  width: 350px !important;
+  max-height: 80vh !important;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  overflow: hidden !important;
+}
+
+.ai-assistant-header {
+  background: #f8f9fa;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+}
+
+.ai-assistant-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #666;
+}
+
+.toggle-btn:hover {
+  background: #e9ecef;
+}
+
+.ai-assistant-content {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.ai-assistant-section {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ai-assistant-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.ai-assistant-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.ai-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.action-buttons .ai-btn {
+  width: auto;
+  margin-bottom: 8px;
+}
+
+.ai-result {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.chat-prompt {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 15px;
+  font-size: 12px;
+}
+
+.bullet-point {
+  margin: 8px 0;
+  line-height: 1.5;
+  padding: 4px 0;
+}
+
+.bullet-point:first-child {
+  margin-top: 0;
+}
+
+.bullet-point:last-child {
+  margin-bottom: 0;
+}
+
+.ai-btn:hover {
+  background: #0056b3;
+}
+
+.ai-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.result-container {
+  min-height: 20px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.chat-container {
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.chat-input-container {
+  display: flex;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.chat-send-btn {
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-send-btn:hover {
+  background-color: #218838;
+}
+
+.chat-message {
+  display: flex;
+  align-items: start;
+  padding: 5px 0;
+}
+
+.chat-icon {
+  margin-right: 10px;
+}
+
+.chat-content {
+  background: #e9ecef;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.chat-message.user .chat-content {
+  background: #d1e7dd;
+}
+
+.chat-message.assistant .chat-content {
+  background: #e2e3e5;
+}
+
+.loading::before {
+  content: '⏳';
+  margin-right: 8px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.analysis-result,
+.pattern-result,
+.review-result {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hint-item {
+  background: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.hint-number {
+  font-weight: 600;
+  color: #0056b3;
+  margin-bottom: 4px;
+}
+
+.hint-content {
+  line-height: 1.4;
+  color: #333;
+}
+
+/* Dark mode support - LeetCode specific */
+[data-theme="dark"] .ai-assistant-panel,
+.dark .ai-assistant-panel,
+body[data-theme="dark"] .ai-assistant-panel,
+html[data-theme="dark"] .ai-assistant-panel {
+  background: #1a1a1a !important;
+  border-color: #333 !important;
+  color: #e0e0e0 !important;
+}
+
+/* System dark mode support */
+@media (prefers-color-scheme: dark) {
+  .ai-assistant-panel {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #e0e0e0;
+  }
+  
+  .ai-assistant-header {
+    background: #2d2d2d;
+    border-color: #333;
+  }
+  
+  .ai-assistant-header h3 {
+    color: #e0e0e0;
+  }
+  
+  .toggle-btn {
+    color: #ccc;
+  }
+  
+  .toggle-btn:hover {
+    background: #404040;
+  }
+  
+  .ai-assistant-section {
+    border-color: #333;
+  }
+  
+  .ai-assistant-section h4 {
+    color: #e0e0e0;
+  }
+  
+  .analysis-result,
+  .pattern-result,
+  .review-result {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .hint-item {
+    background: #1a2332;
+    border-color: #2d4a66;
+  }
+  
+  .hint-number {
+    color: #66b3ff;
+  }
+  
+  .hint-content {
+    color: #e0e0e0;
+  }
+  
+  .error {
+    background: #2d1a1a;
+    border-color: #4a2626;
+    color: #ff6b6b;
+  }
+  
+  .ai-result {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .chat-container {
+    background: #2d2d2d;
+    border-color: #404040;
+  }
+  
+  .chat-input {
+    background: #1a1a1a;
+    border-color: #404040;
+    color: #e0e0e0;
+  }
+  
+  .chat-content {
+    background: #404040;
+    color: #e0e0e0;
+  }
+  
+  .chat-message.user .chat-content {
+    background: #2d5a2d;
+  }
+  
+  .chat-message.assistant .chat-content {
+    background: #3a3a3a;
+  }
+  
+  .chat-prompt {
+    color: #ccc;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ai-assistant-panel {
+    width: 300px;
+    right: 10px;
+    top: 80px;
+  }
+}

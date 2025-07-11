@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode AI Assistant</title>
+    <style>
+        body {
+            width: 300px;
+            padding: 20px;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .section {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="password"], input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        input[type="password"]:focus, input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            margin-top: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        .status {
+            text-align: center;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .help-text {
+            font-size: 11px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .instructions {
+            background: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .instructions h4 {
+            margin: 0 0 8px 0;
+            font-size: 13px;
+            color: #0056b3;
+        }
+
+        .instructions ol {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .instructions li {
+            margin-bottom: 4px;
+        }
+
+        .version {
+            text-align: center;
+            font-size: 10px;
+            color: #999;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 LeetCode AI Assistant</h1>
+        <p>Step-by-step problem solving guidance</p>
+    </div>
+
+    <div class="section">
+        <h3>Configuration</h3>
+        <div class="form-group">
+            <label for="apiKey">Groq API Key:</label>
+            <input type="password" id="apiKey" placeholder="gsk_...">
+            <div class="help-text">
+                Get your free API key from <a href="https://console.groq.com/keys" target="_blank">Groq Console</a>
+            </div>
+        </div>
+        <button id="saveBtn" class="btn">Save Settings</button>
+        <button id="testBtn" class="btn btn-secondary">Test Connection</button>
+        <div id="status" class="status" style="display: none;"></div>
+    </div>
+
+    <div class="section">
+        <h3>How to Use</h3>
+        <div class="instructions">
+            <h4>Getting Started:</h4>
+            <ol>
+                <li>Add your Groq API key above (it's free!)</li>
+                <li>Go to any LeetCode problem page</li>
+                <li>Look for the AI Assistant panel on the right</li>
+                <li>Click buttons to get analysis, hints, or code review</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Features</h3>
+        <div class="instructions">
+            <h4>Available Tools:</h4>
+            <ol>
+                <li><strong>Problem Analysis:</strong> Understand the problem requirements</li>
+                <li><strong>Step-by-Step Hints:</strong> Progressive guidance without spoilers</li>
+                <li><strong>Pattern Recognition:</strong> Identify algorithmic patterns</li>
+                <li><strong>Code Review:</strong> Get feedback on your solution</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="version">
+        Version 1.0.0
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
