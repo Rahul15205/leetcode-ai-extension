@@ -1,8 +1,10 @@
-/* LeetCode AI Assistant Styles */
+/* styles.css - LeetCode AI Assistant Styles */
+
+/* Base panel styles */
 .ai-assistant-panel {
-  position: fixed !important;
-  top: 100px !important;
-  right: 20px !important;
+  position: fixed !important; /* Keep fixed to position relative to viewport */
+  top: 100px !important; /* Initial top, will be overridden by JS if dragged or saved */
+  right: 20px !important; /* Initial right, will be overridden by JS if dragged or saved (JS calculates left) */
   width: 350px !important;
   max-height: 80vh !important;
   background: #ffffff;
@@ -10,11 +12,15 @@
   border-radius: 8px !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   z-index: 999999 !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   font-size: 14px !important;
   overflow: hidden !important;
+  cursor: grab; /* Indicate it's draggable by default */
+  resize: both; /* Allow resizing (optional, might need JS logic to persist size) */
+  overflow: auto; /* Allow content to scroll if resized smaller */
 }
 
+/* Header styles */
 .ai-assistant-header {
   background: #f8f9fa;
   padding: 12px 16px;
@@ -22,7 +28,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: move;
+  cursor: grab; /* Make header specifically grab-able */
 }
 
 .ai-assistant-header h3 {
@@ -32,6 +38,7 @@
   color: #333;
 }
 
+/* Toggle button for panel minimize/maximize */
 .toggle-btn {
   background: none;
   border: none;
@@ -51,12 +58,14 @@
   background: #e9ecef;
 }
 
+/* Content area that scrolls */
 .ai-assistant-content {
-  max-height: 70vh;
+  max-height: 70vh; /* Max height before scroll for content */
   overflow-y: auto;
   padding: 16px;
 }
 
+/* Section dividers */
 .ai-assistant-section {
   margin-bottom: 20px;
   padding-bottom: 16px;
@@ -73,8 +82,11 @@
   font-size: 14px;
   font-weight: 600;
   color: #333;
+  display: flex; /* For alignment with clear chat button */
+  align-items: center;
 }
 
+/* Buttons for AI actions */
 .ai-btn {
   background: #007bff;
   color: white;
@@ -100,6 +112,7 @@
   margin-bottom: 8px;
 }
 
+/* AI result display area */
 .ai-result {
   background: #f8f9fa;
   border: 1px solid #e9ecef;
@@ -108,8 +121,11 @@
   margin-top: 8px;
   font-size: 13px;
   line-height: 1.4;
+  white-space: pre-wrap; /* Preserve line breaks and spaces */
+  word-wrap: break-word; /* Break long words */
 }
 
+/* Chat prompt message */
 .chat-prompt {
   text-align: center;
   color: #666;
@@ -118,6 +134,7 @@
   font-size: 12px;
 }
 
+/* Bullet point formatting within AI results */
 .bullet-point {
   margin: 8px 0;
   line-height: 1.5;
@@ -132,6 +149,7 @@
   margin-bottom: 0;
 }
 
+/* Button hover and disabled states */
 .ai-btn:hover {
   background: #0056b3;
 }
@@ -141,10 +159,12 @@
   cursor: not-allowed;
 }
 
+/* Container for displaying main results */
 .result-container {
   min-height: 20px;
 }
 
+/* Loading indicator for main results */
 .loading {
   display: flex;
   align-items: center;
@@ -153,6 +173,7 @@
   padding: 8px 0;
 }
 
+/* Chat container and input */
 .chat-container {
   background: #f1f1f1;
   border: 1px solid #ddd;
@@ -189,6 +210,7 @@
   background-color: #218838;
 }
 
+/* Individual chat messages */
 .chat-message {
   display: flex;
   align-items: start;
@@ -197,6 +219,7 @@
 
 .chat-icon {
   margin-right: 10px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .chat-content {
@@ -205,20 +228,49 @@
   padding: 8px;
   font-size: 13px;
   line-height: 1.4;
+  word-wrap: break-word; /* Ensure long words break */
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+  flex-grow: 1; /* Allow content to take available space */
 }
 
 .chat-message.user .chat-content {
-  background: #d1e7dd;
+  background: #d1e7dd; /* Light green for user messages */
 }
 
 .chat-message.assistant .chat-content {
-  background: #e2e3e5;
+  background: #e2e3e5; /* Light grey for assistant messages */
 }
 
+/* Spinner for loading states */
 .loading::before {
   content: '⏳';
   margin-right: 8px;
   animation: spin 1s linear infinite;
+}
+
+/* Button specific loading spinner */
+.ai-btn.loading-button {
+  background: #007bff; /* Keep original color */
+  cursor: wait;
+  opacity: 0.8;
+  position: relative;
+  overflow: hidden;
+  color: transparent; /* Hide text while spinner is active */
+}
+
+.ai-btn.loading-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  margin-left: -7.5px;
+  margin-top: -7.5px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -226,6 +278,7 @@
   100% { transform: rotate(360deg); }
 }
 
+/* Error message styling */
 .error {
   color: #dc3545;
   background: #f8d7da;
@@ -236,6 +289,7 @@
   font-size: 13px;
 }
 
+/* Specific result types (can be styled differently if needed) */
 .analysis-result,
 .pattern-result,
 .review-result {
@@ -248,6 +302,7 @@
   line-height: 1.4;
 }
 
+/* Hint item styling */
 .hint-item {
   background: #e7f3ff;
   border: 1px solid #b3d9ff;
@@ -268,6 +323,13 @@
   color: #333;
 }
 
+/* Dragging state for the panel */
+.ai-assistant-panel.dragging {
+  cursor: grabbing; /* Cursor when actively dragging */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important; /* Visual feedback */
+}
+
+
 /* Dark mode support - LeetCode specific */
 [data-theme="dark"] .ai-assistant-panel,
 .dark .ai-assistant-panel,
@@ -276,6 +338,7 @@ html[data-theme="dark"] .ai-assistant-panel {
   background: #1a1a1a !important;
   border-color: #333 !important;
   color: #e0e0e0 !important;
+  cursor: grab !important; /* Ensure cursor also adapts */
 }
 
 /* System dark mode support */
@@ -284,33 +347,35 @@ html[data-theme="dark"] .ai-assistant-panel {
     background: #1a1a1a;
     border-color: #333;
     color: #e0e0e0;
+    cursor: grab;
   }
-  
+
   .ai-assistant-header {
     background: #2d2d2d;
     border-color: #333;
+    cursor: grab;
   }
-  
+
   .ai-assistant-header h3 {
     color: #e0e0e0;
   }
-  
+
   .toggle-btn {
     color: #ccc;
   }
-  
+
   .toggle-btn:hover {
     background: #404040;
   }
-  
+
   .ai-assistant-section {
     border-color: #333;
   }
-  
+
   .ai-assistant-section h4 {
     color: #e0e0e0;
   }
-  
+
   .analysis-result,
   .pattern-result,
   .review-result {
@@ -318,58 +383,67 @@ html[data-theme="dark"] .ai-assistant-panel {
     border-color: #404040;
     color: #e0e0e0;
   }
-  
+
   .hint-item {
     background: #1a2332;
     border-color: #2d4a66;
   }
-  
+
   .hint-number {
     color: #66b3ff;
   }
-  
+
   .hint-content {
     color: #e0e0e0;
   }
-  
+
   .error {
     background: #2d1a1a;
     border-color: #4a2626;
     color: #ff6b6b;
   }
-  
+
   .ai-result {
     background: #2d2d2d;
     border-color: #404040;
     color: #e0e0e0;
   }
-  
+
   .chat-container {
     background: #2d2d2d;
     border-color: #404040;
   }
-  
+
   .chat-input {
     background: #1a1a1a;
     border-color: #404040;
     color: #e0e0e0;
   }
-  
+
   .chat-content {
     background: #404040;
     color: #e0e0e0;
   }
-  
+
   .chat-message.user .chat-content {
-    background: #2d5a2d;
+    background: #2d5a2d; /* Darker green for user messages in dark mode */
   }
-  
+
   .chat-message.assistant .chat-content {
-    background: #3a3a3a;
+    background: #3a3a3a; /* Darker grey for assistant messages in dark mode */
   }
-  
+
   .chat-prompt {
     color: #ccc;
+  }
+
+  .ai-btn.loading-button {
+    background: #007bff; /* Keep original color */
+    color: transparent;
+  }
+  .ai-btn.loading-button::after {
+    border: 2px solid #fff;
+    border-top-color: transparent;
   }
 }
 
@@ -379,5 +453,8 @@ html[data-theme="dark"] .ai-assistant-panel {
     width: 300px;
     right: 10px;
     top: 80px;
+    /* When screen is small, make it default to full width if possible */
+    left: 10px;
+    right: 10px;
   }
 }

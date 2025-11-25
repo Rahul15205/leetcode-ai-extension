@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "LeetCode AI Assistant",
-  "version": "1.0.0",
-  "description": "AI-powered step-by-step problem solving assistant for LeetCode",
+  "version": "2.0.0",
+  "description": "AI-powered step-by-step problem solving assistant for LeetCode with code improvements, test generation, and progress tracking",
   "permissions": [
     "activeTab",
     "storage",

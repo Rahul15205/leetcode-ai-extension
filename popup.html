@@ -160,6 +160,34 @@
             color: #999;
             margin-top: 15px;
         }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
     </style>
 </head>
 <body>
@@ -196,20 +224,54 @@
     </div>
 
     <div class="section">
+        <h3>📊 Your Progress</h3>
+        <div id="progressSection" class="stats-container">
+            <div class="stat-item">
+                <span class="stat-label">Problems Worked On:</span>
+                <span class="stat-value" id="problemsCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Hints Used:</span>
+                <span class="stat-value" id="hintsCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Code Reviews:</span>
+                <span class="stat-value" id="reviewsCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Improvements:</span>
+                <span class="stat-value" id="improvementsCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Templates Generated:</span>
+                <span class="stat-value" id="templatesCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Test Cases Generated:</span>
+                <span class="stat-value" id="testCasesCount">0</span>
+            </div>
+        </div>
+        <button id="resetProgress" class="btn btn-secondary" style="margin-top: 10px;">Reset Progress</button>
+    </div>
+
+    <div class="section">
         <h3>Features</h3>
         <div class="instructions">
             <h4>Available Tools:</h4>
             <ol>
-                <li><strong>Problem Analysis:</strong> Understand the problem requirements</li>
-                <li><strong>Step-by-Step Hints:</strong> Progressive guidance without spoilers</li>
-                <li><strong>Pattern Recognition:</strong> Identify algorithmic patterns</li>
-                <li><strong>Code Review:</strong> Get feedback on your solution</li>
+                <li><strong>Problem Analysis:</strong> Understand requirements</li>
+                <li><strong>Hints:</strong> Progressive guidance</li>
+                <li><strong>Pattern Recognition:</strong> Identify patterns</li>
+                <li><strong>Code Review:</strong> Get feedback</li>
+                <li><strong>Improvements:</strong> Get code diffs</li>
+                <li><strong>Templates:</strong> Generate starter code</li>
+                <li><strong>Test Cases:</strong> Generate test data</li>
             </ol>
         </div>
     </div>
 
     <div class="version">
-        Version 1.0.0
+        Version 2.0.0 - Pro Edition
     </div>
 
     <script src="popup.js"></script>
